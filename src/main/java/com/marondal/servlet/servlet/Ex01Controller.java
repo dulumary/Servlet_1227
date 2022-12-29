@@ -30,7 +30,7 @@ public class Ex01Controller extends HttpServlet {
 		String dateString = formatter.format(now);
 		
 		out.println(dateString);
-		
+
 	}
 
 }
