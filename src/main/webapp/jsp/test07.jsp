@@ -33,6 +33,12 @@
     list.add(map);
     
     String searchMenu = request.getParameter("menu");
+    // pointFilter 로 true, false
+    String pointFilter = request.getParameter("pointFilter");
+    
+    if(pointFilter == null) {
+    	pointFilter = "false";
+    }
 	
 	%>
 	<div class="container">
@@ -54,14 +60,21 @@
 				if(searchMenu.equals(store.get("menu"))) {
 					
 					Double point = (Double)store.get("point");
+					//if(pointFilter.equals("false") || point >= 4.0) {
+						
+					// 포인터 필터가 true 이고, 4.0미만이면 보여주지 말아라 
+					if(pointFilter.equals("true") && point < 4.0) {
+						continue;	
+					}
 			%>
 			<tr>
 				<td><%= store.get("menu") %></td>
 				<td><%= store.get("name") %></td>
 				<td><%= store.get("point") %></td>	
 			</tr>
-			<% 	} %>	
-			<% } %>
+			<%  // } 
+			 	} 	
+			 } %>
 			
 	
 			
