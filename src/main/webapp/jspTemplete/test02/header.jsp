@@ -5,13 +5,13 @@
 				<h1 class="text-success">Melong</h1>
 			</div>
 			<div class="search col-10 d-flex align-items-center">
-			
-				<div class="input-group col-6">
-				  <input type="text" class="form-control">
+			<form method="get" action="/jspTemplete/test02/test02_detail.jsp">
+				<div class="input-group col-12">
+				  <input type="text" class="form-control" name="title">
 				  <div class="input-group-append">
-				    <button class="btn btn-success" type="button">검색</button>
+				    <button class="btn btn-success" type="submit">검색</button>
 				  </div>
 				</div>
-				
+			</form>
 			</div>
 		</header>

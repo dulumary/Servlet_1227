@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,7 @@
 	<link rel="stylesheet" href="/jspTemplete/test02/style.css" type="text/css">
 </head>
 <body>
+	<%@ include file="data.jsp" %>
 
 	<div class="container">
 		<jsp:include page="header.jsp" />
@@ -23,12 +25,12 @@
 			<div class="artist-info d-flex border border-success p-3 mt-3">
 			
 				<div class="photo col-2">
-					<img width="150" src="http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/867/444/81867444_1616662460652_1_600x600.JPG">
+					<img width="150" src="<%= artistInfo.get("photo") %>">
 				</div>
 				<div class="info col-10">
-					<h3>아이유</h3>
-					<div>EDAM 엔터테인먼트</div>
-					<div>2008 데뷔</div>
+					<h3><%= artistInfo.get("name") %></h3>
+					<div><%= artistInfo.get("agency") %></div>
+					<div><%= artistInfo.get("debute") %> 데뷔</div>
 				</div>
 			
 			</div>
@@ -45,16 +47,13 @@
 						</tr>
 					</thead>
 					<tbody>
+						<% for(Map<String, Object> music:musicList) { %>
 						<tr>
-							<td>1</td>
-							<td>좋은날</td>
-							<td>Real</td>
+							<td><%= music.get("id") %></td>
+							<td><a href="/jspTemplete/test02/test02_detail.jsp?id=<%= music.get("id") %>"><%= music.get("title") %></a></td>
+							<td><%= music.get("album") %></td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td>삐삐</td>
-							<td>삐삐</td>
-						</tr>
+						<% } %>
 					</tbody>
 				
 				
